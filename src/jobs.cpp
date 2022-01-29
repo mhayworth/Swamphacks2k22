@@ -115,9 +115,12 @@ vector<pair<string,string>> Jobs::getSubMajorJobs(string major){
         currIndex = 0;
         //check if save this line's data
         if(tempStore.at(1) == "major" && tempStore.at(0) == major){
+            tempStore.at(1) = "null";
+            //cout << tempStore.at(1) << endl;
             //at the correct spot. go line for line until hit another major.
             //save 9, 10 and 11 in tempStore now. (0 is title, 1 is type, 2 is salary)
             while (getline(myFile, line) && tempStore.at(1) != "major"){ //while not at a new major def
+                tempStore.clear();
                 for (int i = 0; i < line.length(); i++){
                  if(line.at(i) == ','){
                     if(currIndex == 9 || currIndex == 10 || currIndex == 11) 
@@ -133,14 +136,14 @@ vector<pair<string,string>> Jobs::getSubMajorJobs(string major){
                 tempStore.at(2) = "-1";
             subs.push_back(make_pair(tempStore.at(0), tempStore.at(2)));
             minorJobSalaries[tempStore.at(0)] = tempStore.at(2);
-            tempStore.clear();
             }
             minorJobs = subs;
             return subs;
         }
-        tempStore.clear();
+        tempStore.at(1) = "null";
         //its not this major. go to next line until it is.
         while(getline(myFile, line) && tempStore.at(1) != "major" && tempStore.at(0) != major){
+            tempStore.clear();
             for (int i = 0; i < line.length(); i++){
                  if(line.at(i) == ','){
                     if(currIndex == 9 || currIndex == 10) 
@@ -150,9 +153,10 @@ vector<pair<string,string>> Jobs::getSubMajorJobs(string major){
                 }
             }
         }
-        tempStore.clear();
+        tempStore.at(1) = "null";
         //At the correct major. newline, go until next category and add to subs.
         while(getline(myFile, line) && tempStore.at(1) != "major"){
+            tempStore.clear();
              for (int i = 0; i < line.length(); i++){
                  if(line.at(i) == ','){
                     if(currIndex == 9 || currIndex == 10 || currIndex == 11) 
@@ -168,10 +172,8 @@ vector<pair<string,string>> Jobs::getSubMajorJobs(string major){
                 tempStore.at(2) = "-1";
             subs.push_back(make_pair(tempStore.at(0), tempStore.at(2)));
             minorJobSalaries[tempStore.at(0)] = tempStore.at(2);
-            tempStore.clear();
         }
         minorJobs = subs;
-
         return subs;   
     }
     minorJobs = subs;
