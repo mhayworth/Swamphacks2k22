@@ -47,3 +47,7 @@ bool State::read() {
 float State::getLivingCost() {
     return livingCost;
 }
+
+Jobs State::getJob() {
+    return job;
+}

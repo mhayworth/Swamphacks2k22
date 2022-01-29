@@ -15,4 +15,5 @@ class State {
         State(string name);
         bool read();
         float getLivingCost();
+        Jobs getJob();
 };
