@@ -15,4 +15,6 @@ class State {
         State(string name);
         bool read();
         float getLivingCost();
+        bool compare(String potentialState, salary potentialSalary);
+        Job getJob();
 }
