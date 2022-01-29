@@ -1,5 +1,6 @@
 #include <fstream>
 #include <vector>
+#include <iostream>
 
 #include "State.h"
 
@@ -25,14 +26,22 @@ bool State::read() {
                     vInput.push_back(line.substr(start, i - start));
                     start = i + 1;
                 }
+                else if (i == line.length() - 1) {
+                    vInput.push_back(line.substr(start, i - start + 1));
+                }
+            }
+            
+            if (vInput.size() != 2) {
+                return false;
             }
             if (vInput.at(0) == stateName) {
                 livingCost = stof(vInput.at(1));
+                return true;
             }
-            return true;
+            
         }
-        return false;
     }
+    return false;
 }
 
 float State::getLivingCost() {

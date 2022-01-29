@@ -29,7 +29,7 @@ void interact() {
     cin >> homeState;
     State home = State(homeState);
 
-    cout << "Enter your annual salary as a number - no commas, please!" << endl;
+    cout << "Enter your post-tax annual salary as a number - no commas, please!" << endl;
     string salary;
     cin >> salary;
 
