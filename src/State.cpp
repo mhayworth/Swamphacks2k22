@@ -2,10 +2,11 @@
 #include <vector>
 
 #include "State.h"
+#include "Jobs.h"
 
 State::State(string name) {
     stateName = name;
-    job = Job(stateName);
+    job = Jobs(stateName);
     if (!read()) {
         livingCost = -1;
     }

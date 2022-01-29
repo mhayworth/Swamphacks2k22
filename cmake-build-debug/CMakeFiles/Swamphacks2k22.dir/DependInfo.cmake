@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/STEAM/Documents/GitHub/Swamphacks2k22/src/main.cpp" "C:/Users/STEAM/Documents/GitHub/Swamphacks2k22/cmake-build-debug/CMakeFiles/Swamphacks2k22.dir/src/main.cpp.obj"
+  "C:/Users/STEAM/Documents/Swamphacks2k22/src/main.cpp" "C:/Users/STEAM/Documents/Swamphacks2k22/cmake-build-debug/CMakeFiles/Swamphacks2k22.dir/src/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
