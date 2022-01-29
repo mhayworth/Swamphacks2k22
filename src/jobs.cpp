@@ -4,6 +4,7 @@
 #include "Jobs.h"
 #include <iostream>
 #include <fstream>
+#include <algorithm>
 using namespace std;
 
 Jobs::Jobs(){
@@ -71,6 +72,8 @@ vector<string> Jobs::calcMajorJobs(){
         }
         return majors;
     }
+    vector<string> v;
+    return v;
 }
 
 //access csv file, given state name, return all MajorJobs.
@@ -181,8 +184,10 @@ vector<pair<string,string>> Jobs::getSubMajorJobs(string major){
 }
 
 int Jobs::getSalary(string jobTitle){
-    int temp = stoi(minorJobSalaries[jobTitle]);
-    return temp;
+    string temp = minorJobSalaries[jobTitle];
+    temp.erase(remove(temp.begin(), temp.end(), ','), temp.end());
+    cout << temp << endl;
+    return stoi(temp);
 }
 
 void Jobs::initStatesOrder(){
