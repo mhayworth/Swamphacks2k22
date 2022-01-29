@@ -54,7 +54,7 @@ void takeHomeDialog(int argc, char* argv[]) {
         lifeStyleMultiplier = 0.75f;
     }
     else if (lifeStyle == "luxuriously") {
-        lifeStyleMultiplier == 1.5f;
+        lifeStyleMultiplier = 1.5f;
     }
     else {
         lifeStyleMultiplier = 1;
@@ -102,7 +102,7 @@ void evaluateDialog(int argc, char* argv[]) {
         lifeStyleMultiplier = 0.75f;
     }
     else if (lifeStyle == "luxuriously") {
-        lifeStyleMultiplier == 1.5f;
+        lifeStyleMultiplier = 1.5f;
     }
     else {
         lifeStyleMultiplier = 1;
