@@ -8,14 +8,17 @@
 using namespace std;
 class Jobs{
 private:
-    string state, majorJob, subJob;
-    int salary;
+    string state;
+    vector<string> majorJobs;
+    vector<pair<string, string>> minorJobs;
+    unordered_map<string, string> minorJobSalaries;
     unordered_map<string, string> statesOrder;
 public:
-    //Jobs(string stateName);
     Jobs();
+    vector<string> calcMajorJobs();
     void setStateName(string stateName);
     vector<string> getMajorJobs();
-    vector<string> getSubMajorJobs(string major);
+    int getSalary(string jobTitle);
+    vector<pair<string, string>> getSubMajorJobs(string major);
     void initStatesOrder();
 };
