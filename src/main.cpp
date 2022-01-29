@@ -6,7 +6,16 @@
 
 using namespace std;
 
-void helpDialog() {
+void helpDialog(string major) {
+    if (major != "" && major != "help") {
+        Jobs a;
+        a.setStateName("Florida");
+        vector<pair<string, string>> vec = a.getSubMajorJobs(major);
+        cout << "sub-jobs for major " << major << endl;
+        for (int i = 0; i < vec.size(); i++) {
+            cout << vec[i].first;
+        }
+    }
     cout << "Thank you for using the Comparing Salaries Bot!" << endl;
     cout << "Functionality is as follows:" << endl;
     cout << "1. '!CS compare' is to compare your salary to a local average." << endl;
@@ -21,7 +30,14 @@ void helpDialog() {
     cout << endl;
     cout << "3. '!CS evaluate' is to evaluate a job offer." << endl;
     cout << "Functionality for evaluation is: !CS evaluate <Current_State> <Current_Salary> <New_State> <New_Salary> <Lifestyle>. See 2. for lifestyle info" << endl;
-    
+    cout << endl;
+    cout << "Job titles are very specific. To find your job title, try !CS <major_name>, Major names are" << endl;
+    Jobs j;
+    j.setStateName("Florida");
+    vector<string> v = j.getMajorJobs();
+    for (int i = 0; i < v.size(); i++) {
+        cout << v[i] << endl;
+    }
 }
 
 void takeHomeDialog(int argc, char* argv[]) {
@@ -63,7 +79,7 @@ void compareDialog(int argc, char* argv[]) {
     State home = State(homeState);
     string salary = argv[3];
     string jobTitle = argv[4];
-    int avgSalary = 0;//home.getJob().getSalary();
+    int avgSalary = home.getJob().getSalary(jobTitle);
     cout << "Your state's average salary is $" << avgSalary;
     if (avgSalary > stoi(salary)) {
         cout << ", which is higher than your salary. You may want to look for better offers in the area." << endl;
@@ -111,9 +127,8 @@ void evaluateDialog(int argc, char* argv[]) {
 }
 
 int main(int argc, char* argv[]) {
-
     if (argc < 2) {
-        helpDialog();
+        helpDialog("");
     }
     else if (strcmp(argv[1], "compare") == 0) {
         compareDialog(argc, argv);
@@ -125,7 +140,7 @@ int main(int argc, char* argv[]) {
         evaluateDialog(argc, argv);
     }
     else {
-        helpDialog();
+        helpDialog(argv[1]);
     }
     return 0;
 }
