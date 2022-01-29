@@ -87,13 +87,13 @@ void helpDialog() {
 
 void takeHomeDialog(int argc, char* argv[]) {
     if (argc < 4) {
-        cout << "Functionality for take home pay is: !SC <State_Name> <Salary> <Lifestyle>" << endl;
-        cout << "<Salary> should have no commas, while <Lifestyle> can be 'frugally', 'normally', 'luxuriously'" << endl;
-        cout << "Example: '!SC Florida 75000 frugally' would be your input if you live in Florida, make $75,000 annually and live frgually" << endl;
+        cout << "Functionality for take home pay is: !SP <State_Name> <Salary> <Lifestyle>" << endl;
+        cout << "<Salary> should have no commas and be post-tax, while <Lifestyle> can be 'frugally', 'normally', 'luxuriously'" << endl;
+        cout << "Example: '!SP Florida 75000 frugally' would be your input if you live in Florida, make $75,000 post-tax annually and live frgually" << endl;
         return;
     }
     string homeState = argv[1];
-    State(home) = State(homeState);
+    State home = State(homeState);
     string salary = argv[2];
     string lifeStyle = argv[3];
 
@@ -118,15 +118,39 @@ void takeHomeDialog(int argc, char* argv[]) {
     return;
 }
 
+void SChelp() {
+    cout << "Job titles can be split into major and minor jobs. Major jobs are:" << endl;
+    State home = State("Florida");
+    vector<string> majorJobs = home.getJob().getMajorJobs();
+}
+
 void compareDialog(int argc, char* argv[]) {
-    if (argc < num) {
+    if (argc < 4) {
+        cout << "Functionality for take pay comparison is: !SC <State_Name> <Salary> <Job_Title>" << endl;
+        cout << "<Salary> should have no commas and be post-tax, and more information on <Job_Title> can be found through !SC help" << endl;
+        cout << "Example: '!SC Florida 75000 Aerospace-Engineers' would be your input if you live in Florida, make $75,000 post-tax are an aerospace engineer" << endl;
+        return;
+    }
+    if (argv[1] == "help") {
+        SChelp();
         return;
     }
     string homeState = argv[1];
-    State(home) = State(homeState);
+    State home = State(homeState);
     string salary = argv[2];
     string jobTitle = argv[3];
+    int avgSalary = 0;//home.getJob().getSalary();
+    cout << "Your states average salary is $" << avgSalary;
+    if (avgSalary > stoi(salary)) {
+        cout << ", which is higher than your salary. You may want to look for better offers in the area." << endl;
+    }
+    else {
+        cout << ", which is lower than your salary, your job is a keeper!" << endl;
+    }
+}
 
+void evaluateDialog() {
+    return;
 }
 
 int main(int argc, char* argv[]) {
@@ -134,10 +158,10 @@ int main(int argc, char* argv[]) {
         helpDialog();
     }
     else if (argv[0] == "!SC") {
-        compareDialog(argc, argv[]);
+        compareDialog(argc, argv);
     }
     else if (argv[0] == "!SP") {
-        takeHomeDialog(argc, argv[]);
+        takeHomeDialog(argc, argv);
     }
     else if (argv[0] == "!SE") {
         evaluateDialog();
