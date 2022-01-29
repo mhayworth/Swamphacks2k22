@@ -85,10 +85,6 @@ void helpDialog() {
     cout << "For help with any of these commands, try !<name> help - ex. '!SC help'" << endl;
 }
 
-void compareDialog(int argc, char* argv[]) {
-
-}
-
 void takeHomeDialog(int argc, char* argv[]) {
     if (argc < 4) {
         cout << "Functionality for take home pay is: !SC <State_Name> <Salary> <Lifestyle>" << endl;
@@ -99,7 +95,7 @@ void takeHomeDialog(int argc, char* argv[]) {
     string homeState = argv[1];
     State(home) = State(homeState);
     string salary = argv[2];
-    string lifestyle = argv[3];
+    string lifeStyle = argv[3];
 
     float lifeStyleMultiplier;
     if (lifeStyle == "frugally") {
