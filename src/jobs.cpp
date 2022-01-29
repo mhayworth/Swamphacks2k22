@@ -8,6 +8,7 @@ using namespace std;
 
 Jobs::Jobs(string stateName){
     this->state = stateName;
+    initStatesOrder();
 }
 
 //access csv file, given state name, return all MajorJobs.

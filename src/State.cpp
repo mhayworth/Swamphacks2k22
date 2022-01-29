@@ -16,7 +16,7 @@ bool State::read() {
     string line;
     ifstream myfile ("../Datasets/Costsofliving.csv");
     vector<string> vInput;
-    if myfile.is_open() {
+    if (myfile.is_open()) {
         while (getline (myfile, line)) {
             vInput.clear();
             int start = 0;

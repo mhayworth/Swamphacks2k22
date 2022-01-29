@@ -24,7 +24,7 @@ void interact() {
         }
     }
     
-    cout << "Enter your current state's name:" <<endl;
+    cout << "Enter your current state's name:" << endl;
     string homeState;
     cin >> homeState;
     State home = State(homeState);

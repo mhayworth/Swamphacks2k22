@@ -10,8 +10,9 @@ class Jobs{
 private:
     string state, majorJob, subJob;
     int salary;
+    unordered_map<string, string> statesOrder;
 public:
     Jobs(string stateName);
     vector<string> getMajorJobs();
-
+    void initStatesOrder();
 };
