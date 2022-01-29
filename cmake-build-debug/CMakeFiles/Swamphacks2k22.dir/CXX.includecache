@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/STEAM/Documents/GitHub/Swamphacks2k22/src/Jobs.h
+vector
+-
+
+C:/Users/STEAM/Documents/GitHub/Swamphacks2k22/src/jobs.cpp
+Jobs.h
+C:/Users/STEAM/Documents/GitHub/Swamphacks2k22/src/Jobs.h
+iostream
+-
+
+C:/Users/STEAM/Documents/GitHub/Swamphacks2k22/src/main.cpp
+iostream
+-
+jobs.cpp
+C:/Users/STEAM/Documents/GitHub/Swamphacks2k22/src/jobs.cpp
+
