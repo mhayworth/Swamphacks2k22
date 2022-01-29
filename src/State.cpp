@@ -5,7 +5,7 @@
 
 State::State(string name) {
     stateName = name;
-    job = Jobs(stateName);
+    //job = Jobs(stateName);
     if (!read()) {
         livingCost = -1;
     }

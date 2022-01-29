@@ -10,7 +10,7 @@ using namespace std;
 class State {
     private:
         string stateName;
-        Jobs job;
+        Jobs job = Jobs(stateName);
         float livingCost;
 
     public:

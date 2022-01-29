@@ -55,20 +55,23 @@ void interact() {
     int takeHomePay = stoi(salary) - (15000 * home.getLivingCost() / 100 * lifeStyleMultiplier);
 
     switch (stoi(userInput)) {
-        case 1:
+        case 1: {
             vector<string> majorJobs = home.getJob().getMajorJobs();
             cout << "Select a major job field" << endl;
             for (int i = 0; i < majorJobs.size(); i++) {
                 cout << i << ". " << majorJobs[i] << endl;
             }
             // add more
-        case 2:
+            break;
+        }
+        case 2: {
             cout << "Your take home pay after considering costs of living and lifestyle is " << takeHomePay << endl;
-        case 3:
+            break;
+        }
+        case 3: {
             cout << "Your current take home pay is " << takeHomePay << endl;
-
-
-            
+            break;
+        }
     }
     return;
 }
