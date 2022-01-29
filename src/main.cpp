@@ -14,26 +14,27 @@ void interact() {
     string userInput;
     cin >> userInput;
     while (true) {
-        try (stof(userInput)) {
+        try {
+            (stof(userInput));
             break;
         }
         catch (...) {
-            cout << "Please enter just the number of your selection!"
+            cout << "Please enter just the number of your selection!" << endl;
             cin >> userInput;
         }
     }
     
-    cout << "Enter your current state's name:"
-    String homeState;
+    cout << "Enter your current state's name:" <<endl;
+    string homeState;
     cin >> homeState;
     State home = State(homeState);
 
-    cout << "Enter your annual salary as a number - no commas, please!"
-    String salary;
+    cout << "Enter your annual salary as a number - no commas, please!" << endl;
+    string salary;
     cin >> salary;
 
     cout << "Do you live frugally, normally, or luxuriously? (hint: type the word exactly as it appears)" << endl;
-    String lifeStyle;
+    string lifeStyle;
     cin >> lifeStyle;
     float lifeStyleMultiplier;
 
@@ -53,7 +54,7 @@ void interact() {
     }
     int takeHomePay = stoi(salary) - (15000 * home.getLivingCost() / 100 * lifeStyleMultiplier);
 
-    switch (stof(userInput)) {
+    switch (stoi(userInput)) {
         case 1:
             vector<string> majorJobs = home.getJob().getMajorJobs();
             cout << "Select a major job field" << endl;

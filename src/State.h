@@ -3,18 +3,20 @@
 #include <string>
 #include <unordered_map>
 
+#include "Jobs.h"
+
 using namespace std;
 
 class State {
     private:
         string stateName;
-        Job job;
+        Jobs job;
         float livingCost;
 
     public:
         State(string name);
         bool read();
         float getLivingCost();
-        bool compare(String potentialState, salary potentialSalary);
-        Job getJob();
-}
+        bool compare(string potentialState, int potentialSalary);
+        Jobs getJob();
+};

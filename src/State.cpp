@@ -5,7 +5,7 @@
 
 State::State(string name) {
     stateName = name;
-    job = Job(stateName);
+    job = Jobs(stateName);
     if (!read()) {
         livingCost = -1;
     }
@@ -15,7 +15,7 @@ bool State::read() {
     string line;
     ifstream myfile ("../Datasets/Costsofliving.csv");
     vector<string> vInput;
-    if myfile.is_open() {
+    if (myfile.is_open()) {
         while (getline (myfile, line)) {
             vInput.clear();
             int start = 0;
@@ -39,6 +39,6 @@ float State::getLivingCost() {
     return livingCost;
 }
 
-Job State::getJob() {
-    return Job;
+Jobs State::getJob() {
+    return job;
 }
