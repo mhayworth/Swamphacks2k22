@@ -13,8 +13,9 @@ void helpDialog(string major) {
         vector<pair<string, string>> vec = a.getSubMajorJobs(major);
         cout << "sub-jobs for major " << major << endl;
         for (int i = 0; i < vec.size(); i++) {
-            cout << vec[i].first;
+            cout << vec[i].first << endl;
         }
+        return;
     }
     cout << "Thank you for using the Comparing Salaries Bot!" << endl;
     cout << "Functionality is as follows:" << endl;
