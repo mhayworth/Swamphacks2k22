@@ -16,5 +16,6 @@ public:
     Jobs();
     void setStateName(string stateName);
     vector<string> getMajorJobs();
+    vector<string> getSubMajorJobs(string major);
     void initStatesOrder();
 };

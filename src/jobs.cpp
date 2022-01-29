@@ -11,6 +11,7 @@ using namespace std;
     initStatesOrder();
 }*/
 Jobs::Jobs(){
+    initStatesOrder();
     //empty
 }
 
@@ -77,6 +78,12 @@ vector<string> Jobs::getMajorJobs(){
         return majors;
     }
 }
+
+vector<string> Jobs::getSubMajorJobs(string major){
+    vector<string> temp;
+    return temp;
+}
+
 
 void Jobs::initStatesOrder(){
     this->statesOrder["Alabama"] = "01";
