@@ -76,7 +76,78 @@ void interact() {
     return;
 }
 
-int main() {
-    interact();
+void helpDialog() {
+    cout << "Thank you for using the Comparing Salaries Bot!" << endl;
+    cout << "Functionality is as follows:" << endl;
+    cout << "1. !SC is to compare your salary to a local average." << endl;
+    cout << "2. !SP is to find your take home pay after factoring in cost of living." << endl;
+    cout << "3. !SE is to evaluate a job offer." << endl;
+    cout << "For help with any of these commands, try !<name> help - ex. '!SC help'" << endl;
+}
+
+void compareDialog(int argc, char* argv[]) {
+
+}
+
+void takeHomeDialog(int argc, char* argv[]) {
+    if (argc < 4) {
+        cout << "Functionality for take home pay is: !SC <State_Name> <Salary> <Lifestyle>" << endl;
+        cout << "<Salary> should have no commas, while <Lifestyle> can be 'frugally', 'normally', 'luxuriously'" << endl;
+        cout << "Example: '!SC Florida 75000 frugally' would be your input if you live in Florida, make $75,000 annually and live frgually" << endl;
+        return;
+    }
+    string homeState = argv[1];
+    State(home) = State(homeState);
+    string salary = argv[2];
+    string lifestyle = argv[3];
+
+    float lifeStyleMultiplier;
+    if (lifeStyle == "frugally") {
+        lifeStyleMultiplier = 0.75f;
+    }
+    else if (lifeStyle == "luxuriously") {
+        lifeStyleMultiplier == 1.5f;
+    }
+    else {
+        lifeStyleMultiplier = 1;
+    }
+
+    if (home.getLivingCost() == -1) {
+        cout << "Error: could not find state " << homeState << endl;
+        return;
+    }
+    int takeHomePay = stoi(salary) - (15000 * home.getLivingCost() / 100 * lifeStyleMultiplier);
+
+    cout << "Your take home pay after considering costs of living and lifestyle is " << takeHomePay << endl;
+    return;
+}
+
+void compareDialog(int argc, char* argv[]) {
+    if (argc < num) {
+        return;
+    }
+    string homeState = argv[1];
+    State(home) = State(homeState);
+    string salary = argv[2];
+    string jobTitle = argv[3];
+
+}
+
+int main(int argc, char* argv[]) {
+    if (argc == 0) {
+        helpDialog();
+    }
+    else if (argv[0] == "!SC") {
+        compareDialog(argc, argv[]);
+    }
+    else if (argv[0] == "!SP") {
+        takeHomeDialog(argc, argv[]);
+    }
+    else if (argv[0] == "!SE") {
+        evaluateDialog();
+    }
+    else {
+        helpDialog();
+    }
     return 0;
 }
