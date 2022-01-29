@@ -6,10 +6,18 @@
 #include <fstream>
 using namespace std;
 
-Jobs::Jobs(string stateName){
+/*Jobs::Jobs(string stateName){
     this->state = stateName;
     initStatesOrder();
+}*/
+Jobs::Jobs(){
+    //empty
 }
+
+void Jobs::setStateName(string stateName){
+    this->state = stateName;
+}
+
 
 //access csv file, given state name, return all MajorJobs.
 vector<string> Jobs::getMajorJobs(){
@@ -35,7 +43,7 @@ vector<string> Jobs::getMajorJobs(){
         int start = 0;
         vector<string> tempStore;
         for (int i = 0; i < line.length(); i++){
-            if(line.at(i) == ","){
+            if(line.at(i) == ','){
                 if(currIndex == 9 || currIndex == 10) //stores job title & type for each line
                     tempStore.push_back(line.substr(start, i - start));
                 currIndex++;
@@ -50,7 +58,7 @@ vector<string> Jobs::getMajorJobs(){
         tempStore.clear();
         while (getline (myFile, line) && currIdent == ident){
             for (int i = 0; i < line.length(); i++){
-                if(line.at(i) == ","){
+                if(line.at(i) == ','){
                     if(currIndex == 0){
                         currIdent = line.substr(0, i);
                     }

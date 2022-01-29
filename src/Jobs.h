@@ -12,7 +12,9 @@ private:
     int salary;
     unordered_map<string, string> statesOrder;
 public:
-    Jobs(string stateName);
+    //Jobs(string stateName);
+    Jobs();
+    void setStateName(string stateName);
     vector<string> getMajorJobs();
     void initStatesOrder();
 };
