@@ -154,6 +154,17 @@ void evaluateDialog() {
 }
 
 int main(int argc, char* argv[]) {
+   /* //Testing Jobs functions
+    Jobs jobtest;
+    cout << "testing..." << endl;
+    jobtest.setStateName("Alabama");
+    vector<string> test = jobtest.getMajorJobs();
+    for(int x = 0; x < test.size(); x++){
+        cout << test.at(x) << endl;
+    }
+*/
+
+
     if (argc == 0) {
         helpDialog();
     }
