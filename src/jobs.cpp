@@ -191,15 +191,15 @@ int Jobs::getSalary(string jobTitle){
 }
 
 void Jobs::initStatesOrder(){
-    this->statesOrder["Alabama"] = "01";
-    this->statesOrder["Alaska"] = "02";
-    this->statesOrder["Arizona"] = "03";
-    this->statesOrder["Arkansas"] = "04";
-    this->statesOrder["California"] = "05";
-    this->statesOrder["Colorado"] = "06";
-    this->statesOrder["Connecticut"] = "07";
-    this->statesOrder["Delaware"] = "08";
-    this->statesOrder["Florida"] = "09";
+    this->statesOrder["Alabama"] = "1";
+    this->statesOrder["Alaska"] = "2";
+    this->statesOrder["Arizona"] = "3";
+    this->statesOrder["Arkansas"] = "4";
+    this->statesOrder["California"] = "5";
+    this->statesOrder["Colorado"] = "6";
+    this->statesOrder["Connecticut"] = "7";
+    this->statesOrder["Delaware"] = "8";
+    this->statesOrder["Florida"] = "9";
     this->statesOrder["Georgia"] = "10";
     this->statesOrder["Hawaii"] = "11";
     this->statesOrder["Idaho"] = "12";
