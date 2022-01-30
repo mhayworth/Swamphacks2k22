@@ -125,10 +125,8 @@ vector<pair<string,string>> Jobs::getSubMajorJobs(string major){
                 tempStore.clear();
                 for (int i = 0; i < line.length(); i++){
                  if(line.at(i) == ','){
-                    if(currIndex == 9 || currIndex == 10 || currIndex == 18){
-                        if(currIndex == 18){
-                            continue;
-                        }
+                    if(currIndex == 9 || currIndex == 10 || currIndex == 18 || currIndex == 19){
+                        
                         tempStore.push_back(line.substr(start, i - start));
 
                     }
@@ -139,9 +137,10 @@ vector<pair<string,string>> Jobs::getSubMajorJobs(string major){
             start = 0;
             currIndex = 0;
             //store value subtype and salary pair
+            string combines = tempStore.at(2) + tempStore.at(3);
             if(tempStore.at(2) == "*")
                 tempStore.at(2) = "-1";
-            subs.push_back(make_pair(tempStore.at(0), tempStore.at(2)));
+            subs.push_back(make_pair(tempStore.at(0), combines));
             minorJobSalaries[tempStore.at(0)] = tempStore.at(2);
             }
             minorJobs = subs;
@@ -168,9 +167,8 @@ vector<pair<string,string>> Jobs::getSubMajorJobs(string major){
             tempStore.clear();
              for (int i = 0; i < line.length(); i++){
                  if(line.at(i) == ','){
-                    if(currIndex == 9 || currIndex == 10 || currIndex == 18) {
-                        if(currIndex == 18)
-                            continue;
+                    if(currIndex == 9 || currIndex == 10 || currIndex == 18 || currIndex == 19) {
+    
                         tempStore.push_back(line.substr(start, i - start));
                     }
                     currIndex++;
@@ -180,9 +178,10 @@ vector<pair<string,string>> Jobs::getSubMajorJobs(string major){
             start = 0;
             currIndex = 0;
             //store value subtype and salary pair
+            string combine = tempStore.at(2) + tempStore.at(3);
             if(tempStore.at(2) == "*")
                 tempStore.at(2) = "-1";
-            subs.push_back(make_pair(tempStore.at(0), tempStore.at(2)));
+            subs.push_back(make_pair(tempStore.at(0), combine));
             minorJobSalaries[tempStore.at(0)] = tempStore.at(2);
         }
         minorJobs = subs;
