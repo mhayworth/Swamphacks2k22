@@ -193,10 +193,12 @@ vector<pair<string,string>> Jobs::getSubMajorJobs(string major){
 }
 
 int Jobs::getSalary(string jobTitle){
-    string temp = minorJobSalaries[jobTitle];
-    temp.erase(remove(temp.begin(), temp.end(), ','), temp.end());
-    cout << temp << endl;
-    return stoi(temp);
+    for (int i = 0; i < minorJobs.size(); i++) {
+        if (jobTitle == minorJobs[i].first) {
+            return stoi(minorJobs[i].second);
+        }
+    }
+    return -1;
 }
 
 void Jobs::initStatesOrder(){
