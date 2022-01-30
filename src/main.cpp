@@ -8,7 +8,7 @@
 using namespace std;
 
 void helpDialog(string major) {
-    if (major != "" && major != "help") {
+    /* if (major != "" && major != "help") {
         Jobs a;
         a.setStateName("Florida");
         vector<pair<string, string>> vec = a.getSubMajorJobs(major);
@@ -16,8 +16,7 @@ void helpDialog(string major) {
         for (int i = 0; i < vec.size(); i++) {
             cout << vec[i].first << endl;
         }
-        return;
-    }
+    } */
     cout << "Thank you for using the Comparing Salaries Bot!" << endl;
     cout << "Functionality is as follows:" << endl;
     cout << "1. '!CS compare' is to compare your salary to a local average." << endl;
@@ -33,7 +32,7 @@ void helpDialog(string major) {
     cout << "3. '!CS evaluate' is to evaluate a job offer." << endl;
     cout << "Functionality for evaluation is: !CS evaluate <Current_State> <Current_Salary> <New_State> <New_Salary> <Lifestyle>. See 2. for lifestyle info" << endl;
     cout << endl;
-    cout << "Job titles are very specific. To find your job title, try !CS <major_name>, Major names are" << endl;
+    cout << "Job titles are very specific. Major names are" << endl;
     Jobs j;
     j.setStateName("Florida");
     vector<string> v = j.getMajorJobs();
@@ -142,6 +141,7 @@ void evaluateDialog(int argc, char* argv[]) {
 }
 
 int main(int argc, char* argv[]) {
+    cout << endl;
     if (argc < 2) {
         helpDialog("");
     }
