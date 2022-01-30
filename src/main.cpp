@@ -33,7 +33,7 @@ void helpDialog(string major) {
     cout << "3. '!CS evaluate' is to evaluate a job offer." << endl;
     cout << "Functionality for evaluation is: !CS evaluate <Current_State> <Current_Salary> <New_State> <New_Salary> <Lifestyle>. See 2. for lifestyle info" << endl;
     cout << endl;
-    cout << "Job titles are very specific. Major names are" << endl;
+    cout << "Job titles are very specific. To find your job title, try !CS <major_name>, Major names are" << endl;
     Jobs j;
     j.setStateName("Florida");
     vector<string> v = j.getMajorJobs();
