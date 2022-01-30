@@ -12,10 +12,15 @@ void helpDialog(string major) {
         Jobs a;
         a.setStateName("Florida");
         vector<pair<string, string>> vec = a.getSubMajorJobs(major);
-        cout << "sub-jobs for major " << major << endl;
-        for (int i = 0; i < vec.size(); i++) {
-            cout << vec[i].first << endl;
+        if(vec.size() > 0){
+            cout << "sub-jobs for major " << major << endl;
+            for (int i = 0; i < vec.size(); i++) {
+                cout << vec[i].first << endl;
+            }
+        }else{
+            cout << "Major not found" << endl;
         }
+        
         return;
     }
     cout << "Thank you for using the Comparing Salaries Bot!" << endl;
@@ -142,11 +147,6 @@ void evaluateDialog(int argc, char* argv[]) {
 }
 
 int main(int argc, char* argv[]) {
-    for (int i = 1; i < argc; ++i)
-    {
-        cout << argv[i] << " ";
-    }
-    cout << endl;
     if (argc < 2) {
         helpDialog("");
     }
