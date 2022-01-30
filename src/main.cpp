@@ -55,7 +55,7 @@ void takeHomeDialog(int argc, char* argv[]) {
         lifeStyleMultiplier = 0.75f;
     }
     else if (lifeStyle == "luxuriously") {
-        lifeStyleMultiplier = 1.5f;
+        lifeStyleMultiplier = 2;
     }
     else {
         lifeStyleMultiplier = 1;
@@ -80,7 +80,16 @@ void compareDialog(int argc, char* argv[]) {
     State home = State(homeState);
     string salary = argv[3];
     string jobTitle = argv[4];
-    int avgSalary = home.getJob().getSalary(jobTitle);
+    int avgSalary =-1;
+    vector<string> v = home.getJob().getMajorJobs();
+    for (int i = 0; i < v.size(); i++) {
+        vector<pair<string,string>> vec = home.getJob().getSubMajorJobs(v[i]);
+        for (int j = 0; j < vec.size(); j++) {
+            if (vec[j].first == jobTitle) {
+                cout << vec[j].second << endl;
+            }
+        }
+    }
     cout << "Your state's average salary is $" << avgSalary;
     if (avgSalary > stoi(salary)) {
         cout << ", which is higher than your salary. You may want to look for better offers in the area." << endl;
@@ -103,7 +112,7 @@ void evaluateDialog(int argc, char* argv[]) {
         lifeStyleMultiplier = 0.75f;
     }
     else if (lifeStyle == "luxuriously") {
-        lifeStyleMultiplier = 1.5f;
+        lifeStyleMultiplier = 2;
     }
     else {
         lifeStyleMultiplier = 1;
