@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cstring>
+#include <algorithm>
 
 #include "State.h"
 
@@ -86,7 +87,11 @@ void compareDialog(int argc, char* argv[]) {
         vector<pair<string,string>> vec = home.getJob().getSubMajorJobs(v[i]);
         for (int j = 0; j < vec.size(); j++) {
             if (vec[j].first == jobTitle) {
-                cout << vec[j].second << endl;
+                string s = vec[j].second;
+                s.erase(remove( s.begin(), s.end(), '\"' ),s.end());
+               // cout << vec[j].second << endl;
+               cout << s << endl;
+               avgSalary = stoi(s);
             }
         }
     }
