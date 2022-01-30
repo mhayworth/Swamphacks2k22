@@ -125,8 +125,13 @@ vector<pair<string,string>> Jobs::getSubMajorJobs(string major){
                 tempStore.clear();
                 for (int i = 0; i < line.length(); i++){
                  if(line.at(i) == ','){
-                    if(currIndex == 9 || currIndex == 10 || currIndex == 11) 
+                    if(currIndex == 9 || currIndex == 10 || currIndex == 18){
+                        if(currIndex == 18){
+                            continue;
+                        }
                         tempStore.push_back(line.substr(start, i - start));
+
+                    }
                     currIndex++;
                     start = i + 1;
                  }
@@ -163,8 +168,11 @@ vector<pair<string,string>> Jobs::getSubMajorJobs(string major){
             tempStore.clear();
              for (int i = 0; i < line.length(); i++){
                  if(line.at(i) == ','){
-                    if(currIndex == 9 || currIndex == 10 || currIndex == 11) 
+                    if(currIndex == 9 || currIndex == 10 || currIndex == 18) {
+                        if(currIndex == 18)
+                            continue;
                         tempStore.push_back(line.substr(start, i - start));
+                    }
                     currIndex++;
                     start = i + 1;
                 }
