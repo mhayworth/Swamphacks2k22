@@ -119,7 +119,6 @@ vector<pair<string,string>> Jobs::getSubMajorJobs(string major){
         //check if save this line's data
         if(tempStore.at(1) == "major" && tempStore.at(0) == major){
             tempStore.at(1) = "null";
-            //cout << tempStore.at(1) << endl;
             //at the correct spot. go line for line until hit another major.
             //save 9, 10 and 11 in tempStore now. (0 is title, 1 is type, 2 is salary)
             while (getline(myFile, line) && tempStore.at(1) != "major"){ //while not at a new major def
@@ -144,17 +143,19 @@ vector<pair<string,string>> Jobs::getSubMajorJobs(string major){
             return subs;
         }
         tempStore.at(1) = "null";
-        //its not this major. go to next line until it is.
-        while(getline(myFile, line) && tempStore.at(1) != "major" && tempStore.at(0) != major){
+        while(getline(myFile, line) && tempStore.at(0) != major){
             tempStore.clear();
             for (int i = 0; i < line.length(); i++){
                  if(line.at(i) == ','){
-                    if(currIndex == 9 || currIndex == 10) 
+                    if(currIndex == 9 || currIndex == 10){ 
                         tempStore.push_back(line.substr(start, i - start));
+                    }
                     currIndex++;
                     start = i + 1;
                 }
             }
+            currIndex = 0;
+            start = 0;
         }
         tempStore.at(1) = "null";
         //At the correct major. newline, go until next category and add to subs.
