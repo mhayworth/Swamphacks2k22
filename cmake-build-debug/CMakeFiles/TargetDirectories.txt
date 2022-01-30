@@ -1,3 +1,0 @@
-C:/Users/STEAM/Documents/Swamphacks2k22/cmake-build-debug/CMakeFiles/Swamphacks2k22.dir
-C:/Users/STEAM/Documents/Swamphacks2k22/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/STEAM/Documents/Swamphacks2k22/cmake-build-debug/CMakeFiles/rebuild_cache.dir
