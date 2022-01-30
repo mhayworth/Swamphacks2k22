@@ -8,15 +8,6 @@
 using namespace std;
 
 void helpDialog(string major) {
-    /* if (major != "" && major != "help") {
-        Jobs a;
-        a.setStateName("Florida");
-        vector<pair<string, string>> vec = a.getSubMajorJobs(major);
-        cout << "sub-jobs for major " << major << endl;
-        for (int i = 0; i < vec.size(); i++) {
-            cout << vec[i].first << endl;
-        }
-    } */
     cout << "Thank you for using the Comparing Salaries Bot!" << endl;
     cout << "Functionality is as follows:" << endl;
     cout << "1. '!CS compare' is to compare your salary to a local average." << endl;
@@ -27,7 +18,7 @@ void helpDialog(string major) {
     cout << "2. '!CS pay' is to find your take home pay after factoring in cost of living." << endl;
     cout << "Functionality for take home pay is: !SP <State_Name> <Salary> <Lifestyle>" << endl;
     cout << "<Salary> should have no commas and be pre-tax, while <Lifestyle> can be 'frugally', 'normally', 'luxuriously'" << endl;
-    cout << "Example: '!CS pay Florida 75000 frugally' would be your input if you live in Florida, make $75,000 pre-tax annually and live frgually" << endl;
+    cout << "Example: '!CS pay Florida 75000 frugally' would be your input if you live in Florida, make $75,000 pre-tax annually and live frugally" << endl;
     cout << endl;
     cout << "3. '!CS evaluate' is to evaluate a job offer." << endl;
     cout << "Functionality for evaluation is: !CS evaluate <Current_State> <Current_Salary> <New_State> <New_Salary> <Lifestyle>. See 2. for lifestyle info" << endl;
@@ -65,7 +56,7 @@ void takeHomeDialog(int argc, char* argv[]) {
         cout << "Error: could not find state " << homeState << endl;
         return;
     }
-    int takeHomePay = stoi(salary) - (15000 * home.getLivingCost() / 100 * lifeStyleMultiplier);
+    int takeHomePay = stoi(salary) - (30000 * home.getLivingCost() / 100 * lifeStyleMultiplier);
 
     cout << "Your take home pay after considering costs of living and lifestyle is " << takeHomePay << endl;
     return;
@@ -129,8 +120,8 @@ void evaluateDialog(int argc, char* argv[]) {
     if (newState.getLivingCost() == -1) {
         cout << "Error: could not find state " << nState << endl;
     }
-    int takeHomePay = stoi(salary) - (15000 * home.getLivingCost() / 100 * lifeStyleMultiplier);
-    int newTakeHomePay = stoi(newSalary) - (15000 * newState.getLivingCost() / 100 * lifeStyleMultiplier);
+    int takeHomePay = stoi(salary) - (30000 * home.getLivingCost() / 100 * lifeStyleMultiplier);
+    int newTakeHomePay = stoi(newSalary) - (30000 * newState.getLivingCost() / 100 * lifeStyleMultiplier);
     if (newTakeHomePay > takeHomePay) {
         cout << "Your new offer has a higher take home pay of " << newTakeHomePay << " versus " << takeHomePay << endl;
     }

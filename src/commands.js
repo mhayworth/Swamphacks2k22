@@ -18,7 +18,6 @@ module.exports = async function (msg) {
 };
 
 function getMessage(msg, resp) {
-  //console.log(resp);
   let content = msg.content.split(" ");
   if (content[1] === "help") {
     commands["help"](msg, resp);
